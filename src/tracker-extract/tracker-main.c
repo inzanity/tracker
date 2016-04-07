@@ -96,7 +96,7 @@ static GOptionEntry entries[] = {
 	  N_("Force a module to be used for extraction (e.g. \"foo\" for \"foo.so\")"),
 	  N_("MODULE") },
 	{ "output-format", 'o', 0, G_OPTION_ARG_STRING, &output_format_name,
-	  N_("Output results format: 'sparql', or 'turtle'"),
+	  N_("Output results format: 'sparql', 'turtle' or 'json'"),
 	  N_("FORMAT") },
 	{ "version", 'V', 0,
 	  G_OPTION_ARG_NONE, &version,
