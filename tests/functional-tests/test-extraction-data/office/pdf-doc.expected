@@ -1,9 +1,11 @@
-[TestFile]
-Filename=pdf-doc.pdf
-Comment=PDF document from the office tools
+{
+	"test": {
+		"Filename": "pdf-doc.pdf",
+		"Comment": "PDF document from the office tools"
+	},
 
-[Metadata]
-
-[Meego]
-a=nfo:PaginatedTextDocument
-nfo_pageCount=22
+	"metadata": {
+		"@type": "nfo:PaginatedTextDocument",
+		"nfo:pageCount": "22"
+	}
+}

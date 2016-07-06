@@ -1,6 +1,7 @@
 #!/usr/bin/python
 #
 # Copyright (C) 2010, Nokia <ivan.frade@nokia.com>
+# Copyright (C) 2016, Sam Thursfield <sam@afuera.me.uk>
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -24,7 +25,7 @@ directory (containing xxx.expected files)
 """
 
 from common.utils import configuration as cfg
-from common.utils.extractor import get_tracker_extract_output
+from common.utils.extractor import get_tracker_extract_jsonld_output
 import unittest2 as ut
 import os
 import sys
@@ -112,7 +113,7 @@ class ExtractionTestCase (ut.TestCase):
         filename_to_extract = self.configParser.get ("TestFile", "Filename")
         self.file_to_extract = os.path.join (desc_root, filename_to_extract)
 
-        result = get_tracker_extract_output(self.file_to_extract)
+        result = get_tracker_extract_jsonld_output(self.file_to_extract)
         self.__assert_extraction_ok (result)
 
     def assertDictHasKey (self, d, key, msg=None):
@@ -156,6 +157,8 @@ class ExtractionTestCase (ut.TestCase):
                 unexpected_pairs.append ( (k[1:].replace ("_", ":"), v) )
             elif k.startswith ("@"):
                 expected_keys.append ( k[1:].replace ("_", ":") )
+            elif k == 'a':
+                expected_keys.append ( '@type' )
             else:
                 expected_pairs.append ( (k.replace ("_", ":"), v) )
 
