@@ -819,7 +819,7 @@ tracker_extract_get_metadata_by_cmdline (TrackerExtract             *object,
 				 */
 				tracker_resource_set_identifier (resource, uri);
 
-				json = tracker_resource_print_jsonld (resource);
+				json = tracker_resource_print_jsonld (resource, NULL);
 				if (json) {
 					g_print ("%s\n", json);
 					g_free (json);
