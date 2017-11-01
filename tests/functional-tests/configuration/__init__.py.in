@@ -92,3 +92,12 @@ if TEST_TMP_DIR.startswith('/tmp'):
 		print ("HOME is in the /tmp prefix - this will cause tests that rely " +
 		       "on filesystem monitoring to fail as changes in that prefix are " +
 		       "ignored.")
+
+
+BUILD_DIR = os.environ.get('TRACKER_FUNCTIONAL_TEST_BUILD_DIR')
+
+def generated_ttl_dir():
+    if BUILD_DIR:
+        return os.path.join(BUILD_DIR, 'tests', 'functional-tests', 'ttl')
+    else:
+        return 'ttl'

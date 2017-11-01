@@ -480,6 +480,9 @@ class StoreHelper (Helper):
     def update (self, update_sparql, timeout=5000, **kwargs):
         return self.resources.SparqlUpdate ('(s)', update_sparql, timeout=timeout, **kwargs)
 
+    def load (self, ttl_uri, timeout=5000, **kwargs):
+        return self.resources.Load ('(s)', ttl_uri, timeout=timeout, **kwargs)
+
     def batch_update (self, update_sparql, **kwargs):
         return self.resources.BatchSparqlUpdate ('(s)', update_sparql, **kwargs)
 
