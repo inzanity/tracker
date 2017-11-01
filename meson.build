@@ -225,6 +225,13 @@ conf.set('prefix', get_option('prefix'))
 conf.set('TRACKER_API_VERSION', tracker_api_version)
 conf.set('VERSION', meson.project_version())
 
+# Special one for the functional tests
+if get_option('journal') == true
+  conf.set('DISABLE_JOURNAL_TRUE', '#')
+else
+  conf.set('DISABLE_JOURNAL_TRUE', '')
+endif
+
 configure_file(input: 'config.h.meson.in',
                output: 'config.h',
                configuration: conf)
