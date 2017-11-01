@@ -32,6 +32,8 @@ import options
 class NoMetadataException (Exception):
     pass
 
+BUILD_DIR = os.environ.get('TRACKER_FUNCTIONAL_TEST_BUILD_DIR')
+
 REASONABLE_TIMEOUT = 30
 
 def log (message):
@@ -93,7 +95,11 @@ class Helper:
 
         command = [path] + flags
         log ("Starting %s" % ' '.join(command))
-        return subprocess.Popen ([path] + flags, **kws)
+        try:
+            process = subprocess.Popen (command, **kws)
+        except OSError as e:
+            raise RuntimeError("Unable to start %s: %s" % (' '.join(command), e))
+        return process
 
     def _bus_name_appeared(self, name, owner, data):
         log ("[%s] appeared in the bus as %s" % (self.PROCESS_NAME, owner))
@@ -213,6 +219,11 @@ class StoreHelper (Helper):
 
     PROCESS_NAME = "tracker-store"
     BUS_NAME = cfg.TRACKER_BUSNAME
+
+    if BUILD_DIR:
+        PROCESS_PATH = os.path.join (BUILD_DIR, "src", "tracker-store", "tracker-store")
+    else:
+        PROCESS_PATH = os.path.join (cfg.EXEC_PREFIX, "tracker-store")
 
     graph_updated_handler_id = 0
 
