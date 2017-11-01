@@ -24,7 +24,7 @@ from common.utils.system import TrackerSystemAbstraction
 import shutil
 import unittest2 as ut
 import os
-from common.utils import configuration as cfg
+import configuration as cfg
 from common.utils.helpers import log
 import time
 

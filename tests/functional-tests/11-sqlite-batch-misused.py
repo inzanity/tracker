@@ -24,7 +24,7 @@ some SQLITE_MISUSED errors before.
 import os
 from gi.repository import GObject
 
-from common.utils import configuration as cfg
+import configuration as cfg
 import unittest2 as ut
 #import unittest as ut
 from common.utils.storetest import CommonTrackerStoreTest as CommonTrackerStoreTest

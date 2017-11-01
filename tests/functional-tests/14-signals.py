@@ -25,7 +25,7 @@ are tested)
 
 import unittest2 as ut
 from common.utils.storetest import CommonTrackerStoreTest as CommonTrackerStoreTest
-from common.utils import configuration as cfg
+import configuration as cfg
 
 from gi.repository import Gio
 from gi.repository import GObject

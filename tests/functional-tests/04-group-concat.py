@@ -23,7 +23,7 @@ Test the GROUP_CONCAT function in Sparql. Only requires the store.
 import unittest
 import random
 
-from common.utils import configuration as cfg
+import configuration as cfg
 import unittest2 as ut
 #import unittest as ut
 from common.utils.storetest import CommonTrackerStoreTest as CommonTrackerStoreTest

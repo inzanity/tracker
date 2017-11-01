@@ -22,7 +22,7 @@ Make sure that when COMMIT returns, the data is in the DB
 """
 import time
 
-from common.utils import configuration as cfg
+import configuration as cfg
 from common.utils.helpers import StoreHelper as StoreHelper
 import unittest2 as ut
 #import unittest as ut

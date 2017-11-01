@@ -23,7 +23,7 @@ import time
 
 from common.utils.system import TrackerSystemAbstraction
 from common.utils.helpers import StoreHelper
-from common.utils import configuration as cfg
+import configuration as cfg
 
 import unittest2 as ut
 #import unittest as ut
